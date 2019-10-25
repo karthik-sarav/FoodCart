@@ -131,7 +131,7 @@ class ListComponent extends Component {
         if(this.state.selectedItem.includes(data)){
             Alert.alert(
                 'Remove item ?',
-                '',
+                'Item will be removed from Orders',
                 [
                   {text: 'Cancel',style: 'cancel'},
                   {text: 'OK', onPress: () => this.removeItem(data)},
@@ -150,7 +150,6 @@ class ListComponent extends Component {
     }
 
     componentDidUpdate(){
-        console.log('inside c--update');
         this.scrollEnd();
     }
 
@@ -275,7 +274,9 @@ class ListComponent extends Component {
                 <View style={{flexDirection:'row',justifyContent:'center',alignItems:'center'}} >
                     <TouchableOpacity onPress={()=>this.decrementQuantity(data)} style={styles.button}><Icon name="minus" style={{alignSelf:'center'}} ></Icon></TouchableOpacity>
                         <Text style={{ fontSize:14, justifyContent:'center',alignSelf:'center',paddingHorizontal:2}}>{data.Quantity}</Text>
-                    <TouchableOpacity onPress={()=>this.incrementQuantity(data)} style={styles.button}><Icon name="plus" style={{alignSelf:'center'}} ></Icon></TouchableOpacity>
+                    {/* <TouchableOpacity onPress={()=>this.incrementQuantity(data)} style={styles.button}><Icon name="plus" style={{alignSelf:'center'}} ></Icon></TouchableOpacity> */}
+                    <TouchableOpacity activeOpacity={0.1} onPress={()=>this.incrementQuantity(data)} style={styles.button}></TouchableOpacity>
+
                 </View>
             </View>
         );
