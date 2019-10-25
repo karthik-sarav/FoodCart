@@ -150,8 +150,8 @@ class ListComponent extends Component {
                         keyExtractor = {item=>item.id}
                     />
                 </View>
-                <View style={{ flex:0.3, alignItems:'center',paddingBottom:10,backgroundColor:'whitesmoke'}}>
-                    <View style={{ height:Dimensions.get('window').height/4,}} >
+                <View style={{ flex:0.3, alignItems:'center',paddingBottom:10,}}>
+                    <View style={{ height:Dimensions.get('window').height/4}} >
                         <Icon style={{padding:10, alignSelf:'flex-end'}} name='account-circle' size={30} color='#BD252A'></Icon>
                         <Text style={{ marginTop:35, fontSize:25,fontWeight:"bold",marginLeft:15}} >My Order,</Text>
                         <Text style={{fontSize:15, fontStyle:'italic' ,fontWeight:"normal",marginLeft:15}} >Take Out</Text>
@@ -166,7 +166,6 @@ class ListComponent extends Component {
                     </View>
                     <FlatList
                         ref='counterList'
-                        style={{height:100}}
                         contentContainerStyle={{paddingBottom: 125}}
                         showsVerticalScrollIndicator={false}
                         data = {this.state.selectedItem}
