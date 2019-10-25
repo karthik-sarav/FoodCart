@@ -141,14 +141,14 @@ class ListComponent extends Component {
                         <Text style={{fontSize:33,fontWeight:"bold",marginLeft:15}}>Hey,</Text>
                         <Text style={{fontSize:20, fontStyle:'italic' ,fontWeight:"normal",marginLeft:15}} >what's up?</Text>
                     </View>
-                    <FlatList
-                        showsVerticalScrollIndicator={false}
-                        contentContainerStyle ={{alignItems:'center'}}
-                        data = {DATA}
-                        renderItem = {({item})=> this.renderItem(item)}
-                        numColumns='2'
-                        keyExtractor = {item=>item.id}
-                    />
+                        <FlatList
+                            showsVerticalScrollIndicator={false}
+                            contentContainerStyle ={{alignItems:'center'}}
+                            data = {DATA}
+                            renderItem = {({item})=> this.renderItem(item)}
+                            numColumns='2'
+                            keyExtractor = {item=>item.id}
+                        />
                 </View>
                 <View style={{ flex:0.3, alignItems:'center',paddingBottom:10,}}>
                     <View style={{ height:Dimensions.get('window').height/4}} >
@@ -189,7 +189,7 @@ export default ListComponent;
 const styles = StyleSheet.create({
     listItem :{ 
         height:100, 
-        width:120, 
+        width:110, 
         borderRadius:13,
         borderWidth:0.28,
         borderColor:'#FFC94F',
@@ -200,7 +200,7 @@ const styles = StyleSheet.create({
     },
     listItemActive:{
         height:100, 
-        width:120, 
+        width:110, 
         borderRadius:13, 
         backgroundColor:'#BD252A', 
         margin:10, 

@@ -40,7 +40,7 @@ export default ListCounterItem;
 const styles = StyleSheet.create({
     counterListItem :{ 
         height:100, 
-        width:100, 
+        width:90, 
         borderRadius:13,
         borderWidth:0.28,
         borderColor:'#FFC94F',
