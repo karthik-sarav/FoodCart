@@ -15,6 +15,7 @@ class ListComponent extends Component {
     state = { 
         selectedItem :[],
         grandTotal:0,
+        listScrollToggle:false,
     }
     
 
@@ -33,13 +34,16 @@ class ListComponent extends Component {
         else{
             this.setState({ 
                 selectedItem: [...this.state.selectedItem, DATA.find(ele=>ele.id == data.id)],
-                grandTotal : this.state.grandTotal + data.Price
+                grandTotal : this.state.grandTotal + data.Price,
+                listScrollToggle:false
             })
         }
     }
 
     componentDidUpdate(){
-        this.scrollEnd();
+        if(!this.state.listScrollToggle){
+            this.scrollEnd();
+        }
     }
 
     resetQuantity =()=>{
@@ -55,6 +59,7 @@ class ListComponent extends Component {
         newSelectedItem[index] = selected;
         this.setState({
             selectedItem: newSelectedItem,
+            listScrollToggle:false
         })
     }
 
@@ -67,7 +72,9 @@ class ListComponent extends Component {
         console.log('stateItem',stateItem);
         this.setState({
             selectedItem : stateItem,
-            grandTotal: this.state.grandTotal == 0 ? 0 : this.state.grandTotal - (item.Price*itemQuantity)
+            grandTotal: this.state.grandTotal == 0 ? 0 : this.state.grandTotal - (item.Price*itemQuantity),
+            listScrollToggle:false
+
         })
     }
 
@@ -90,7 +97,8 @@ class ListComponent extends Component {
                     newSelectedItem[index] = selected;
                     this.setState({
                         selectedItem: newSelectedItem,
-                        grandTotal: this.state.grandTotal + selected.Price
+                        grandTotal: this.state.grandTotal + selected.Price,
+                        listScrollToggle:true,
                     })
                     break;
             case 'DEC':
@@ -101,7 +109,9 @@ class ListComponent extends Component {
                         newSelectedItem[index] = selected;
                         this.setState({
                             selectedItem: newSelectedItem,
-                            grandTotal: this.state.grandTotal == 0 ? 0 : this.state.grandTotal - selected.Price
+                            grandTotal: this.state.grandTotal == 0 ? 0 : this.state.grandTotal - selected.Price,
+                            listScrollToggle:true
+
                         })
                     }
                     else{
